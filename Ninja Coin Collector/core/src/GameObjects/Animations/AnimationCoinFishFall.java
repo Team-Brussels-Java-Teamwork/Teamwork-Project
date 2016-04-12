@@ -5,10 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by Admin on 4/11/2016.
- */
-public class AnimationCoinFall {
+public class AnimationCoinFishFall {
     private static final int FrameCount = 7;
     private static final float CycleTime = 0.5f;
     private ArrayList<TextureRegion> frames;
@@ -17,7 +14,7 @@ public class AnimationCoinFall {
     private int frameWidth;
     private int frame;
 
-    public AnimationCoinFall(TextureRegion region){
+    public AnimationCoinFishFall(TextureRegion region){
         this.frames = new ArrayList<TextureRegion>();
         this.frameWidth = region.getRegionWidth() / FrameCount;
         for (int i = 0; i < FrameCount; i++) {

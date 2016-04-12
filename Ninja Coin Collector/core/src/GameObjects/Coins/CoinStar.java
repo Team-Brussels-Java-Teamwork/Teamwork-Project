@@ -1,17 +1,15 @@
-package GameObjects.Coin;
+package GameObjects.Coins;
 
 import java.util.Random;
 
 import GameObjects.Animations.*;
+import Interfaces.IPickable;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import team.brussels.NinjaCoinCollector;
 
-/**
- * Created by Admin on 4/11/2016.
- */
-public class Coin {
+public class CoinStar implements IPickable{
     private Random rand = new Random();
     private static final int StartWidth = 0;
     private static final int StartHeight = 300;
@@ -25,15 +23,15 @@ public class Coin {
     private Rectangle bounds;
     private TextureRegion movingDown;
 
-    private AnimationCoinFall coinMoveDownAnimation;
+    private AnimationCoinStarFall coinMoveDownAnimation;
 
 
 
-    public Coin() {
+    public CoinStar() {
         this.position = new Vector2(StartWidth+rand.nextInt(1200), StartHeight+rand.nextInt(1200));
         this.downVelocity = new Vector2(DownVelocityX, DownVelocityY);
-        this.movingDown = new TextureRegion(NinjaCoinCollector.getResource("Coin"));
-        this.coinMoveDownAnimation = new AnimationCoinFall(this.movingDown);
+        this.movingDown = new TextureRegion(NinjaCoinCollector.getResource("CoinStar"));
+        this.coinMoveDownAnimation = new AnimationCoinStarFall(this.movingDown);
         this.textureRegion = this.movingDown;
         this.bounds = new Rectangle(this.position.x, this.position.y, this.textureRegion.getRegionWidth(), this.textureRegion.getRegionHeight());
     }

@@ -15,7 +15,7 @@ public class NinjaCoinCollector extends ApplicationAdapter {
     private GameStateManager gameStateManager;
     public static final int WIDTH = 1100;
     public static final int HEIGHT = 800;
-    public static final String TITLE = "Ninja Coin Collector";
+    public static final String TITLE = "Ninja CoinStar Collector";
     private static HashMap<String, Texture> resources;
 
     @Override
@@ -31,7 +31,8 @@ public class NinjaCoinCollector extends ApplicationAdapter {
         this.resources.put("JumpsLeft", new Texture("img/JumpsLeft.png"));
         this.resources.put("JumpsRight", new Texture("img/JumpsRight.png"));
         this.resources.put("Rock", new Texture("img/Rock.png"));
-        this.resources.put("Coin", new Texture("img/Coin.png"));
+        this.resources.put("CoinStar", new Texture("img/CoinStar.png"));
+        this.resources.put("CoinFish", new Texture("img/CoinFish.png"));
         this.gameStateManager = new GameStateManager(this);
         this.gameStateManager.push(new PlayState(this.gameStateManager));
     }
