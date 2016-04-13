@@ -16,6 +16,7 @@ public class NinjaCoinCollector extends ApplicationAdapter {
     public static final int WIDTH = 1100;
     public static final int HEIGHT = 800;
     public static final String TITLE = "Ninja CoinStar Collector";
+    public static final int EARTH_HEIGHT = 45;
     private static HashMap<String, Texture> resources;
 
     @Override
@@ -30,9 +31,10 @@ public class NinjaCoinCollector extends ApplicationAdapter {
         this.resources.put("MovesRight", new Texture("img/MovesRight.png"));
         this.resources.put("JumpsLeft", new Texture("img/JumpsLeft.png"));
         this.resources.put("JumpsRight", new Texture("img/JumpsRight.png"));
-        this.resources.put("Rock", new Texture("img/Rock.png"));
+        this.resources.put("Bomb", new Texture("img/Bomb.png"));
         this.resources.put("CoinStar", new Texture("img/CoinStar.png"));
         this.resources.put("CoinFish", new Texture("img/CoinFish.png"));
+        this.resources.put("Rock", new Texture("img/Rock.png"));
         this.gameStateManager = new GameStateManager(this);
         this.gameStateManager.push(new PlayState(this.gameStateManager));
     }

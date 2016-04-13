@@ -12,16 +12,18 @@ import com.badlogic.gdx.math.Vector2;
 import team.brussels.NinjaCoinCollector;
 
 public class Player {
-    private static final int StartWidth = NinjaCoinCollector.WIDTH / 2;
-    private static final int StartHeight = 45;
-    private static final int CanonLimit = 100;
-    private static final float JumpLimit = 200;
-    private static final float SideVelocityX = 5f;
-    private static final float SideVelocityY = 0;
-    private static final float UpVelocityX = 0;
-    private static final float UpVelocityY = 7;
-    private static final float UpSideVelocityX = 3;
-    private static final float UpSideVelocityY = 0;
+    private static int StartWidth = NinjaCoinCollector.WIDTH / 2;
+    private static int StartHeight = NinjaCoinCollector.EARTH_HEIGHT;
+    private static int Lives = 3;
+    private static int CoinsCollected = 0;
+    private static int CanonLimit = 100;
+    private static float JumpLimit = 200;
+    private static float SideVelocityX = 5f;
+    private static float SideVelocityY = 0;
+    private static float UpVelocityX = 0;
+    private static float UpVelocityY = 7;
+    private static float UpSideVelocityX = 3;
+    private static float UpSideVelocityY = 0;
 
     private TextureRegion textureRegion;
     private Vector2 position;
@@ -41,6 +43,9 @@ public class Player {
     private AnimationWalkRight walkRightAnimation;
     private AnimationJumpLeft jumpLeftAnimation;
     private AnimationJumpRight jumpRightAnimation;
+
+    private int lives;
+    private int coinsCollected;
 
     public Player() {
         this.position = new Vector2(StartWidth, StartHeight);
@@ -62,7 +67,29 @@ public class Player {
 
         this.textureRegion = this.standingLeft;
 
-        this.bounds = new Rectangle(StartWidth, StartHeight, this.textureRegion.getRegionWidth(), this.textureRegion.getRegionHeight());
+        this.bounds = new Rectangle(this.position.x, this.position.y, this.textureRegion.getRegionWidth(), this.textureRegion.getRegionHeight());
+        this.lives = this.Lives;
+        this.coinsCollected = this.CoinsCollected;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
+    public int getCoinsCollected() {
+        return coinsCollected;
+    }
+
+    public void setCoinsCollected(int coinsCollected) {
+        this.coinsCollected = coinsCollected;
+    }
+
+    public Rectangle getBounds() {
+        return bounds;
     }
 
     public TextureRegion getTexture() {
@@ -161,6 +188,8 @@ public class Player {
                 this.playerState = PlayerState.Standing;
             }
         }
+
+        this.bounds.setPosition(this.position.x, this.position.y);
     }
 
     public void handleInput() {
