@@ -1,9 +1,11 @@
 package team.brussels;
 
 import States.GameStateManager;
+import States.MenuState;
 import States.PlayState;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,6 +26,9 @@ public class NinjaCoinCollector extends ApplicationAdapter {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         this.batch = new SpriteBatch();
         this.resources = new HashMap<String, Texture>();
+        this.resources.put("MenuBackground", new Texture("img/area31.jpg"));
+        this.resources.put("StartButton", new Texture("img/playbtn.png"));
+        this.resources.put("ExitButton", new Texture("img/exitbtn.png"));
         this.resources.put("PlayBackground", new Texture("img/PlayBackground.bmp"));
         this.resources.put("StandingLeft", new Texture("img/StandingLeft.png"));
         this.resources.put("StandingRight", new Texture("img/StandingRight.png"));
@@ -36,10 +41,11 @@ public class NinjaCoinCollector extends ApplicationAdapter {
         this.resources.put("CoinFish", new Texture("img/CoinFish.png"));
         this.resources.put("Rock", new Texture("img/Rock.png"));
         this.gameStateManager = new GameStateManager(this);
-        this.gameStateManager.push(new PlayState(this.gameStateManager));
+        this.gameStateManager.push(new MenuState(this.gameStateManager));
     }
 
     public SpriteBatch getBatch() {
+
         return batch;
     }
 
@@ -51,6 +57,7 @@ public class NinjaCoinCollector extends ApplicationAdapter {
     }
 
     public static Texture getResource(String resourceName) {
+
         return resources.get(resourceName);
     }
 }

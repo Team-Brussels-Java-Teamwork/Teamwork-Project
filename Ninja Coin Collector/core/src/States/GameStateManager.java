@@ -16,22 +16,27 @@ public class GameStateManager {
     }
 
     public NinjaCoinCollector getGame() {
+
         return game;
     }
 
     public State getPreviousState() {
+
         return previousState;
     }
 
     public void setPreviousState(State previousState) {
+
         this.previousState = previousState;
     }
 
     public void push(State state){
+
         this.stack.push(state);
     }
 
     public void pop(){
+
         this.stack.pop();
     }
 

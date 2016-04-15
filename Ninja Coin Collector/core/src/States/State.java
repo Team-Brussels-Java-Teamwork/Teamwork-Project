@@ -14,6 +14,7 @@ public abstract class State implements Screen {
         this.gameStateManager = gsm;
     }
     public Stage getStage() {
+
         return this.stage;
     }
 
