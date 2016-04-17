@@ -1,8 +1,12 @@
 package States;
 
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+
 
 public abstract class State implements Screen {
 
@@ -10,25 +14,24 @@ public abstract class State implements Screen {
     private Stage stage;
 
     public State(GameStateManager gsm) {
-
         this.gameStateManager = gsm;
     }
     public Stage getStage() {
-
         return this.stage;
     }
 
     public GameStateManager getGameStateManager() {
-
         return this.gameStateManager;
     }
 
     public void update(float dt){
-        // this.handleInput();
+        this.chechForEscape();
     }
 
-    public void handleInput(){
-        // get imput from user
+    public void chechForEscape(){
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
+            Gdx.app.exit();
+        }
     }
 
 
@@ -44,7 +47,7 @@ public abstract class State implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        //super.resize(width, height);
     }
 
     @Override

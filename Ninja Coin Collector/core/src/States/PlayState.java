@@ -58,6 +58,14 @@ public class PlayState extends State {
         this.fontLives.getData().setScale(2, 2);
     }
 
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 0, 0, 1);
@@ -90,6 +98,7 @@ public class PlayState extends State {
         this.collisionDetectorForCoins();
         this.collisionDetectorForBomb();
         this.collisionDetectorForRocks();
+        super.update(dt);
     }
 
     public void generateRock(){
@@ -153,6 +162,9 @@ public class PlayState extends State {
             if (this.player.getBounds().overlaps(rock.getBounds())){
                 int currentLives = this.player.getLives();
                 this.player.setLives(currentLives - 1);
+                if (this.player.getLives() == 0){
+                    this.getGameStateManager().set(new ExitState(this.getGameStateManager()));
+                }
                 this.resetState();
                 break;
             }
@@ -163,6 +175,9 @@ public class PlayState extends State {
         if (this.player.getBounds().overlaps(this.bomb.getBounds())){
             int currentLives = this.player.getLives();
             this.player.setLives(currentLives - 1);
+            if (this.player.getLives() == 0){
+                this.getGameStateManager().set(new ExitState(this.getGameStateManager()));
+            }
             this.resetState();
         }
     }
@@ -188,4 +203,6 @@ public class PlayState extends State {
         this.coins.clear();
         this.seedCoins();
     }
+
+
 }
