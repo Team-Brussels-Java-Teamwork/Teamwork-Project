@@ -9,17 +9,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import team.brussels.NinjaCoinCollector;
 
-public class CoinFish implements Pickable {
+public class CoinFish extends Coin implements Pickable {
     private Random rand = new Random();
-    private static final int StartWidth = 0;
-    private static final int StartHeight = 700;
-    private static final float DownVelocityX = 0;
-    private static final float DownVelocityY = 5f;
-    private static final int COIN_VALUE = 10;
 
-    private TextureRegion textureRegion;
-    private Vector2 position;
-    private Vector2 downVelocity;
+    private static final int COIN_VALUE = 15;
 
     private Rectangle bounds;
     private TextureRegion movingDown;
@@ -68,11 +61,11 @@ public class CoinFish implements Pickable {
         this.bounds.setPosition(this.position.x, this.position.y);
     }
 
-    public void resetPosition(){
+    public void resetPosition() {
         this.position.y -= NinjaCoinCollector.HEIGHT;
         if (rand.nextInt(1000) > 950) {
             this.position.y = NinjaCoinCollector.HEIGHT + 200;
-            this.position.x = StartWidth+rand.nextInt(1000);
+            this.position.x = StartWidth + rand.nextInt(1000);
         }
     }
 }
