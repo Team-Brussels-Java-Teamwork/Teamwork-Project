@@ -13,4 +13,18 @@ public abstract class Coin {
     protected TextureRegion textureRegion;
     protected Vector2 position;
     protected Vector2 downVelocity;
+
+    public TextureRegion getTexture() {
+        return this.textureRegion;
+    }
+
+    public Vector2 getPosition() {
+        return this.position;
+    }
+
+    public void setPosition(Vector2 position) {
+        this.position = position;
+    }
+
+
 }

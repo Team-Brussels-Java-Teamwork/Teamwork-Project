@@ -18,7 +18,6 @@ public class CoinStar extends Coin implements Pickable {
 
     private AnimationCoinStarFall coinMoveDownAnimation;
 
-
     public CoinStar() {
         this.position = new Vector2(StartWidth + rand.nextInt(1200), StartHeight + rand.nextInt(700));
         this.downVelocity = new Vector2(DownVelocityX, DownVelocityY);
@@ -30,18 +29,6 @@ public class CoinStar extends Coin implements Pickable {
 
     public int getCoinValue() {
         return COIN_VALUE;
-    }
-
-    public TextureRegion getTexture() {
-        return this.textureRegion;
-    }
-
-    public Vector2 getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(Vector2 position) {
-        this.position = position;
     }
 
     public Rectangle getBounds() {

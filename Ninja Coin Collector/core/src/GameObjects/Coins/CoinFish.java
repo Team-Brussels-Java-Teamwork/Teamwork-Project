@@ -32,18 +32,6 @@ public class CoinFish extends Coin implements Pickable {
         return COIN_VALUE;
     }
 
-    public TextureRegion getTexture() {
-        return this.textureRegion;
-    }
-
-    public Vector2 getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(Vector2 position) {
-        this.position = position;
-    }
-
     public Rectangle getBounds() {
         return bounds;
     }
